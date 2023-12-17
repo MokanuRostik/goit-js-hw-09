@@ -8,5 +8,5 @@ import"./assets/modulepreload-polyfill-ec808ebb.js";import{S as p}from"./assets/
     />
    
   </a>
-</li>`).join("");a.innerHTML=t;new p(".gallery a",{captionDelay:250,captionType:"alt",captionPosition:"bottom"});
+</li>`).join("");a.innerHTML=t;new p(".gallery a",{captionDelay:250,captionsData:"alt",captionPosition:"bottom"});
 //# sourceMappingURL=commonHelpers.js.map
