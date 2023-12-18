@@ -24,15 +24,16 @@ feedbackForm.addEventListener('submit', function (event) {
 
   // Очищаємо локальне сховище
   localStorage.removeItem('feedback-form-state');
+  const formData = {
+    email: feedbackForm.querySelector('input[name="email"]').value,
+    message: feedbackForm.querySelector('textarea[name="message"]').value,
+  };
 
   // Очищаємо поля форми
   feedbackForm.querySelector('input[name="email"]').value = '';
   feedbackForm.querySelector('textarea[name="message"]').value = '';
 
   // Отримуємо дані з полів форми та виводимо у консоль
-  const formData = {
-    email: feedbackForm.querySelector('input[name="email"]').value,
-    message: feedbackForm.querySelector('textarea[name="message"]').value,
-  };
+
   console.log(formData);
 });
