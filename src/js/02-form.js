@@ -1,9 +1,12 @@
 const feedbackForm = document.querySelector('.feedback-form');
-
+const emailInput = feedbackForm.querySelector('input[name="email"]');
+const messageInput = feedbackForm.querySelector('textarea[name="message"]');
 function saveToLocalStorage() {
   const formData = {
-    email: feedbackForm.querySelector('input[name="email"]').value,
-    message: feedbackForm.querySelector('textarea[name="message"]').value,
+    email: feedbackForm.querySelector('input[name="email"]').value.trim(),
+    message: feedbackForm
+      .querySelector('textarea[name="message"]')
+      .value.trim(),
   };
   localStorage.setItem('feedback-form-state', JSON.stringify(formData));
 }
@@ -11,9 +14,8 @@ feedbackForm.addEventListener('input', saveToLocalStorage);
 function fillFormFields() {
   const savedData = JSON.parse(localStorage.getItem('feedback-form-state'));
   if (savedData) {
-    feedbackForm.querySelector('input[name="email"]').value = savedData.email;
-    feedbackForm.querySelector('textarea[name="message"]').value =
-      savedData.message;
+    emailInput.value = savedData.email;
+    messageInput.value = savedData.message;
   }
 }
 
@@ -25,13 +27,13 @@ feedbackForm.addEventListener('submit', function (event) {
   // Очищаємо локальне сховище
   localStorage.removeItem('feedback-form-state');
   const formData = {
-    email: feedbackForm.querySelector('input[name="email"]').value,
-    message: feedbackForm.querySelector('textarea[name="message"]').value,
+    email: emailInput.value.trim(),
+    message: messageInput.value.trim(),
   };
 
   // Очищаємо поля форми
-  feedbackForm.querySelector('input[name="email"]').value = '';
-  feedbackForm.querySelector('textarea[name="message"]').value = '';
+  emailInput.value = '';
+  messageInput.value = '';
 
   // Отримуємо дані з полів форми та виводимо у консоль
 
