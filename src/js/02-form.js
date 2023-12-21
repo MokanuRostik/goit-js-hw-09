@@ -3,10 +3,8 @@ const emailInput = feedbackForm.querySelector('input[name="email"]');
 const messageInput = feedbackForm.querySelector('textarea[name="message"]');
 function saveToLocalStorage() {
   const formData = {
-    email: feedbackForm.querySelector('input[name="email"]').value.trim(),
-    message: feedbackForm
-      .querySelector('textarea[name="message"]')
-      .value.trim(),
+    email: emailInput.value.trim(),
+    message: messageInput.value.trim(),
   };
   localStorage.setItem('feedback-form-state', JSON.stringify(formData));
 }
